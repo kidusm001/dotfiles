@@ -17,8 +17,8 @@ $git_status\
 $hg_branch\
 $pijul_channel\
 $docker_context\
-$package\
-$fill\
+$package
+$fill
 $c\
 $cmake\
 $cobol\
