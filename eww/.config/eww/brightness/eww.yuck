@@ -1,0 +1,38 @@
+(defpoll brightness_percent :interval "100ms"
+  ;; Note: If you have multiple brightness controllers, you might need to specify the device:
+  ;; e.g., brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 1, length($4)-1)}'
+  "brightnessctl -m | awk -F, '{print substr($4, 1, length($4)-1)}'")
+
+(defwidget brightness-slider []
+  (box :orientation "h" :halign "center"
+    (metric :label { brightness_percent > 66 ? "" :  ;; Font Awesome: fa-circle
+      brightness_percent > 33 ? "" :  ;; Font Awesome: fa-adjust
+      brightness_percent > 0 ? "" :   ;; Font Awesome: fa-moon
+      "" }                             ;; Font Awesome: fa-regular fa-circle
+      :value brightness_percent
+    :onchange "brightnessctl set {}%")))
+
+(defwidget metric[label value onchange]
+  (box :orientation "h"
+    :class "metric"
+    :space-evenly false
+    (box :class "label" label)
+    (scale  :min 0
+      :max 101 ;; Max value for the scale, 100% brightness
+      :active {onchange != ""}
+      :value value
+    :onchange onchange)))
+
+(defwindow brightness_widget_window ;; Renamed window
+  :monitor 0
+  :geometry (geometry
+    :anchor "bottom center"
+    :x "0"
+    :y "20px"
+    :width "180px" ;; Adjust width as needed for brightness icons/text
+  :height "50px")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  (box :class "brightness-widget-container" ;; Renamed class
+    (brightness-slider)))

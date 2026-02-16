@@ -1,0 +1,65 @@
+* {
+  all: unset; /* Reset default styles */
+}
+window {
+  background-color: transparent; /* Make window background transparent */
+  color: #cdd6f4; /* Catppuccin Mocha text - for any direct text in window, if any */
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  /* padding: 10px; */ /* Moved to container */
+  /* border-radius: 8px; */ /* Moved to container */
+  /* background-clip: padding-box; */ /* No longer needed here */
+}
+
+.volume-widget-container {
+  background-color: #1e1e2e; /* Catppuccin Mocha base */
+  padding: 10px;
+  border-radius: 8px;
+  /* If you want the container itself to clip its background to the padding box: */
+  /* background-clip: padding-box; */
+}
+
+.metric {
+  padding: 5px;
+  margin: 5px;
+  background-color: #1e1e2e; /* Catppuccin Mocha base - Updated */
+}
+
+
+.metric .label {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #cba6f7; /* Catppuccin Mocha mauve */
+}
+
+scale {
+  all: unset; /* Reset default styles */
+  background-color: #1e1e2e; /* Catppuccin Mocha base - Updated */
+  border-radius: 10px;
+  min-height: 20px;
+  min-width: 150px;
+}
+
+scale trough {
+  all: unset;
+  background-color: #1e1e2e; /* Catppuccin Mocha base - Updated */
+  border-radius: 10px;
+  min-height: 10px;
+  min-width: 150px;
+}
+
+scale trough highlight {
+  all: unset;
+  background-color: #a6e3a1; /* Catppuccin Mocha green */
+  border-radius: 10px;
+}
+
+scale slider {
+  all: unset;
+  background-color: #f5c2e7; /* Catppuccin Mocha pink */
+  border-radius: 50%;
+  min-height: 18px;
+  min-width: 18px;
+  margin: 1px; /* To make it appear centered */
+  border: 1px solid #1e1e2e; /* Catppuccin Mocha base for a slight border */
+}

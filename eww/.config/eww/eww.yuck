@@ -1,0 +1,64 @@
+; (defwindow example
+  ;   :monitor 0
+  ;   :geometry (geometry :x "0%"
+    ;     :y "20px"
+    ;     :width "90%"
+    ;     :height "30px"
+  ;   :anchor "top center")
+  ;   :stacking "fg"
+  ;   :reserve (struts :distance "40px" :side "top")
+  ;   :windowtype "dock"
+  ;   :wm-ignore false
+; "example content")
+; (defpoll time :interval "10s" "date '+%H:%M'")
+; (defpoll date :interval "60s" "date '+%b %d, %Y'")
+
+; (defwindow topbar
+  ;   :monitor 0
+  ;   :windowtype "dock"
+  ;   :geometry (geometry :x "0%" :y "0%" :width "98%" :height "32px" :anchor "top center")
+  ;   :reserve (struts :side "top" :distance "36px")
+  ;   (box :class "topbar" :orientation "h" :space-evenly false
+    ;     (box :class "workspaces" :halign "start" :spacing 10
+      ;       (label :class "workspace active" :text "1")
+      ;       (label :class "workspace" :text "2")
+      ;       (label :class "workspace" :text "3"))
+    ;     (box :class "center" :halign "center")
+    ;     (box :class "right" :halign "end" :spacing 15
+      ;       (label :class "time" :text "${time}")
+      ;       (label :class "date" :text "${date}"))))
+(include "./volume/eww.yuck")
+
+(
+  defwindow ex
+  :monitor 0 ; Can be either a number (X11 and Wayland) or an output name (X11 only).
+  :geometry ; Geometry of the window.
+  (
+    geometry ; Geometry of the window.
+    :anchor "top center" ; Values include top, center, bottom and left, center, right.
+    :x "0" ; Position of the window. Values may be provided in px or %.
+    :y "0" ; Will be relative to anchor.
+    :width "10%" ; Width and height of the window.
+    :height "10%" ; Values may be provided in px or %.
+  )
+  
+  ; X11
+  
+  ;:stacking "fg" ; Where the window should appear in the stack. Possible values: fg, bg.
+  ;:wm-ignore "true" ; Whether the window manager should ignore this window.
+  ;:reserve ; Specify how the window manager should make space for your window.
+  ;(
+    ;    struts ; This is useful for bars, which should not overlap any other windows.
+    ;    :distance "10px"
+    ;    :side "top"
+  ;)
+  ;:windowtype "dock" ; Possible values: normal, dock, toolbar, dialog, desktop.
+  
+  ; Wayland
+  
+  :stacking "fg" ; Possible values: fg, bg, overlay, bottom.
+  :exclusive "true" ; Whether the compositor should reserve space for the window.
+  :focusable "false" ; This is necessary for any widgets that use the keyboard to work.
+  ;:namespace "??" ; Set the wayland layersurface namespace eww uses.
+  "HELLO WORLD"
+)

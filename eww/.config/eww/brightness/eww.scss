@@ -1,0 +1,81 @@
+* {
+  all: unset; /* Reset default styles */
+}
+window {
+  background-color: transparent; /* Make window background transparent */
+  color: #cdd6f4; /* Catppuccin Mocha text - for any direct text in window, if any */
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  /* padding: 10px; */ /* Moved to container */
+  /* border-radius: 8px; */ /* Moved to container */
+  /* background-clip: padding-box; */ /* No longer needed here */
+}
+
+.brightness-widget-container { // Renamed from .volume-widget-container
+  background-color: #1e1e2e; /* Catppuccin Mocha base */
+  padding: 8px; /* Adjusted padding for a smaller look */
+  border-radius: 8px;
+  border: 1px solid #f5c2e7; /* Vibrant Catppuccin Mocha Pink border */
+  /* If you want the container itself to clip its background to the padding box: */
+  /* background-clip: padding-box; */
+}
+
+.metric {
+  padding: 0px; /* Reduced padding */
+  margin: 0px;  /* Reduced margin */
+  background-color: #1e1e2e; /* Catppuccin Mocha base */
+}
+
+
+.metric .label {
+  margin-right: 20px; /* Increased margin for more gap */
+  font-weight: normal; /* Cleaner look */
+  color: #cba6f7; /* Catppuccin Mocha mauve */
+  font-size: 16px; /* Adjusted icon size */
+}
+
+.brightness-icon-container {
+  margin-right: 20px; /* Spacing between icon area and scale */
+  /* You might want to set a fixed width/height if icons vary in size,
+     to prevent layout shifts during transition, e.g., min-width: 20px; text-align: center; */
+}
+
+.brightness-icon {
+  font-weight: normal;
+  color: #cba6f7; /* Catppuccin Mocha mauve */
+  font-size: 16px; /* Adjusted icon size */
+  // No CSS transition needed here, the revealer handles the smooth transition
+}
+
+scale {
+  all: unset; /* Reset default styles */
+  background-color: #1e1e2e; /* Catppuccin Mocha base */
+  border-radius: 2px; /* Adjusted for thinner look */
+  min-height: 2px;  /* Reduced height to match thin trough */
+  min-width: 100px; /* Retained width, can be adjusted if needed */
+}
+
+scale trough {
+  all: unset;
+  background-color: #1e1e2e; /* Catppuccin Mocha base */
+  border-radius: 2px; /* Match scale's radius */
+  min-height: 2px;  /* Reduced height for a very thin trough */
+  min-width: 100px; /* Match scale's width */
+}
+
+scale trough highlight {
+  all: unset;
+  background-image: linear-gradient(to right, #cba6f7, #f38ba8, #f5c2e7); /* Gradient from Mauve to Red to Pink */
+  border-radius: 2px; /* Match scale's radius */
+  min-height: 2px; /* Match trough height */
+}
+
+scale slider {
+  all: unset;
+  background-color: transparent; /* Make slider thumb invisible */
+  border-radius: 50%;
+  min-height: 0px; /* Make slider thumb invisible */
+  min-width: 0px;  /* Make slider thumb invisible */
+  margin: 0px; /* Reset margin as it's invisible */
+  border: none; /* Remove border */
+}

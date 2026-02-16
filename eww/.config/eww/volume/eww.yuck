@@ -1,0 +1,36 @@
+(defpoll volume :interval "1ms"
+"pamixer --get-volume")
+
+(defwidget vol-slider []
+  (box :orientation "h" :halign "center"
+    (metric :label { volume > 66 ? "" :
+      volume > 33 ? "" :
+      volume > 0 ? "" :
+      "" }
+      :value volume
+    :onchange "pamixer --set-volume {}")))
+
+(defwidget metric[label value onchange]
+  (box :orientation "h"
+    :class "metric"
+    :space-evenly false
+    (box :class "label" label)
+    (scale  :min 0
+      :max 101
+      :active {onchange != ""}
+      :value value
+    :onchange onchange)))
+
+(defwindow my-widget
+  :monitor 0
+  :geometry (geometry
+    :anchor "bottom center" ; Changed from "top center"
+    :x "0"
+    :y "20px" ; Adjust this value for padding from the bottom edge
+    :width "180px"
+  :height "50px")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  (box :class "volume-widget-container"
+    (vol-slider)))
