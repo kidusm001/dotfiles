@@ -1,0 +1,34 @@
+[Desktop Entry]
+FullScreen=false
+
+[FileDialogSize]
+1920x1080 screen: Window-Maximized=true
+
+[General]
+LockSidebar=true
+ShowSidebar=false
+
+[Recent Files]
+File1[$e]=$HOME/Documents/What to Expect & Position Overviews 2 (1).pdf
+File10[$e]=/mnt/exfat/books/Jon_Bodner_Learning_Go_An_Idiomatic_Approach_to_Real_world_Go_Programming.pdf
+File2[$e]=$HOME/Documents/resum/resume_02.pdf
+File3[$e]=$HOME/Documents/Obsidian Vault/notes/work/issues-need-to-be-added.md
+File4[$e]=$HOME/Downloads/SDR_JD.pdf
+File5[$e]=$HOME/Documents/the_resume.pdf
+File6[$e]=$HOME/Downloads/Telegram Desktop/LeulYaredResume (2).pdf
+File7[$e]=$HOME/Downloads/Telegram Desktop/Leul Y.pdf
+File8[$e]=$HOME/Downloads/Telegram Desktop/claymore/Claymore_v03.cbz
+File9[$e]=$HOME/Downloads/Telegram Desktop/claymore/Claymore_v07.cbz
+Name1[$e]=What to Expect & Position Overviews 2 (1).pdf
+Name10[$e]=Jon_Bodner_Learning_Go_An_Idiomatic_Approach_to_Real_world_Go_Programming.pdf
+Name2[$e]=resume_02.pdf
+Name3[$e]=issues-need-to-be-added.md
+Name4[$e]=SDR_JD.pdf
+Name5[$e]=the_resume.pdf
+Name6[$e]=LeulYaredResume (2).pdf
+Name7[$e]=Leul Y.pdf
+Name8[$e]=Claymore_v03.cbz
+Name9[$e]=Claymore_v07.cbz
+
+[UiSettings]
+ColorScheme=CatppuccinMochaMauve
