@@ -80,7 +80,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 export PATH=$PATH:$HOME/go/bin
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-export PNPM_HOME="/home/cross/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -101,18 +101,18 @@ export PATH="$HOME/.local/share/zigup/master/files:$PATH"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-export PATH=$PATH:/home/cross/.spicetify
+export PATH=$PATH:$HOME/.spicetify
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
-[ -s "/home/cross/.bun/_bun" ] && source "/home/cross/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Turso
-export PATH="$PATH:/home/cross/.turso"
+export PATH="$PATH:$HOME/.turso"
 
 # Run on Nvidia
 alias nrun='WAYLAND_DISPLAY= __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only'
