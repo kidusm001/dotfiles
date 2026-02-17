@@ -1,0 +1,5 @@
+# Ignore all plugins
+tmux/.config/tmux/plugins/*
+
+# But DO track the plugin manager itself so you can bootstrap it
+!tmux/.config/tmux/plugins/tpm/
