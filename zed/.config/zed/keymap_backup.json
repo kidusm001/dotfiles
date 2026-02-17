@@ -1,0 +1,84 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+//[
+//  {
+//    "context": "Workspace",
+//    "bindings": {
+//      // "shift shift": "file_finder::Toggle"
+//    }
+//  },
+//  {
+//    "context": "Editor",
+//    "bindings": {
+//      // "j k": ["workspace::SendKeystrokes", "escape"]
+//    }
+//  }
+//]
+[
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // LEADER KEY (Space)
+      "space v": "pane::SplitRight",
+      "space s": "pane::SplitDown",
+      "space h": "workspace::ActivatePaneInDirectionLeft", // CORRECTED
+      "space j": "workspace::ActivatePaneInDirectionDown", // CORRECTED
+      "space k": "workspace::ActivatePaneInDirectionUp", // CORRECTED
+      "space l": "workspace::ActivatePaneInDirectionRight", // CORRECTED
+      "space w": "editor::Save", // CORRECTED
+      "space q": "pane::CloseActiveItem", // CORRECTED
+      "space x": "pane::SaveActiveItemAndClose", // CORRECTED
+      "space f": "file_finder::Toggle",
+      "space p": "editor::Format",
+      "space c a": "editor::ToggleCodeActions",
+      // Buffer/Tab Navigation
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      // Diagnostics
+      "[ d": "editor::GoToPrevDiagnostic",
+      "] d": "editor::GoToNextDiagnostic", // CORRECTED
+      // Hover
+      "g h": "editor::Hover"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "<": "editor::Outdent",
+      ">": "editor::Indent",
+      "J": "editor::MoveLineDown",
+      "K": "editor::MoveLineUp",
+      "space c": "editor::ToggleComments"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "n": "project_panel::NewFile",
+      "shift-n": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete"
+    }
+  },
+  {
+    // These are now global since they can be triggered from anywhere.
+    "bindings": {
+      "ctrl-e": "project_panel::ToggleFocus",
+      "ctrl-shift-j": "terminal_panel::ToggleFocus",
+      "ctrl-z": "zen::Toggle", // CORRECTED
+      "ctrl-shift-n": "terminal_panel::New", // CORRECTED
+      "ctrl-shift-w": "pane::CloseActiveItem" // CORRECTED
+    }
+  }
+]

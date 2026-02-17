@@ -1,0 +1,90 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+//[
+//  {
+//    "context": "Workspace",
+//    "bindings": {
+//      // "shift shift": "file_finder::Toggle"
+//    }
+//  },
+//  {
+//    "context": "Editor",
+//    "bindings": {
+//      // "j k": ["workspace::SendKeystrokes", "escape"]
+//    }
+//  }
+//]
+[
+    {
+        "context": "Editor && vim_mode == normal",
+        "bindings": {
+            // LEADER KEY (Space)
+            "space v": "pane::SplitRight",
+            "space s": "pane::SplitDown",
+            "space h": "workspace::ActivatePaneLeft",
+            "space j": "workspace::ActivatePaneDown",
+            "space k": "workspace::ActivatePaneUp",
+            "space l": "workspace::ActivatePaneRight",
+            "space w": "workspace::Save",
+            "space q": "pane::CloseActiveItem",
+            "space x": "workspace::SaveAll", // Note: No direct "Save and Quit", using "Save All" as a substitute.
+            "ctrl f": "file_finder::Toggle",
+            "space p": "editor::Format",
+            "space c a": "editor::ToggleCodeActions",
+            // Buffer/Tab Navigation
+            "shift-h": "pane::ActivatePreviousItem",
+            "shift-l": "pane::ActivateNextItem",
+            // Diagnostics
+            "[ d": "editor::GoToPreviousDiagnostic",
+            "] d": "editor::GoToDiagnostic",
+            // Hover
+            "g h": "editor::Hover"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == visual",
+        "bindings": {
+            // Indentation
+            "<": "editor::Outdent",
+            ">": "editor::Indent",
+            // Move Lines
+            "J": "editor::MoveLineDown",
+            "K": "editor::MoveLineUp",
+            // Toggle Comment
+            "space c": "editor::ToggleComments"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == insert",
+        "bindings": {
+            // Exit Insert Mode
+        }
+    },
+    {
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "n": "project_panel::NewFile",
+            "r": "project_panel::Rename",
+            "shift-n": "project_panel::NewDirectory",
+            "d": [
+                "project_panel::Trash",
+                {
+                    "skip_prompt": false
+                }
+            ]
+        }
+    },
+    {
+        // Global bindings from your VS Code keymap.json
+        "bindings": {
+            "ctrl-e": "project_panel::ToggleFocus",
+            "ctrl-shift-j": "workspace::ToggleBottomDock",
+            "ctrl-z": "zed::ToggleFullScreen" // Note: Your file has no Zen Mode, using Full Screen instead.
+        }
+    }
+]
