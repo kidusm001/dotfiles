@@ -15,6 +15,45 @@ return {
     'christoomey/vim-tmux-navigator',
     lazy = false, -- Load immediately for seamless navigation
   },
+  {
+    'seblyng/roslyn.nvim',
+    ft = 'cs',
+    opts = {},
+  },
+
+  -- .NET development configuration
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'mason-org/mason.nvim',
+    },
+    config = function()
+      -- Ensure csharpier is installed via mason-tool-installer
+      local ok, installer = pcall(require, 'mason-tool-installer')
+      if ok then
+        installer.setup {
+          ensure_installed = {
+            'csharpier',
+          },
+        }
+      end
+    end,
+  },
+
+  -- Load .NET custom config after plugins are loaded
+  {
+    'neovim/nvim-lspconfig',
+    lazy = true,
+    config = function()
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'LazyDone',
+        callback = function()
+          pcall(require, 'custom.config.dotnet')
+          pcall(require, 'custom.config.terminal')
+        end,
+      })
+    end,
+  },
 
   -- File explorer: Edit your filesystem like a buffer
   -- NOTE: oil.nvim commented out to try mini.files
