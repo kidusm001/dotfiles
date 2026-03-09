@@ -21,25 +21,6 @@ return {
     opts = {},
   },
 
-  -- .NET development configuration
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'mason-org/mason.nvim',
-    },
-    config = function()
-      -- Ensure csharpier is installed via mason-tool-installer
-      local ok, installer = pcall(require, 'mason-tool-installer')
-      if ok then
-        installer.setup {
-          ensure_installed = {
-            'csharpier',
-          },
-        }
-      end
-    end,
-  },
-
   -- Load .NET custom config after plugins are loaded
   {
     'neovim/nvim-lspconfig',

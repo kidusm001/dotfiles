@@ -724,6 +724,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'debugpy', -- Python debugger adapter
+        'csharpier', -- C# formatter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
