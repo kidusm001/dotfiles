@@ -9,6 +9,11 @@ local monitor_settings = {
 	["HDMI-A-2"] = { mode = "preferred", position = "auto", scale = 1 },
 }
 
+-- Per-machine overrides (see host.lua / hosts/)
+for output, settings in pairs(require("host").monitors or {}) do
+	monitor_settings[output] = settings
+end
+
 for output, settings in pairs(monitor_settings) do
 	local args = { output = output }
 	for key, value in pairs(settings) do

@@ -18,7 +18,7 @@ case $chosen in
         hyprctl dispatch exit
         ;;
     Lock)
-        hyprlock
+        ~/.config/hypr/Scripts/lock.sh
         ;;
     Cancel)
         exit 0

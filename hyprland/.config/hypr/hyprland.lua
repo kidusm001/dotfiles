@@ -1,3 +1,4 @@
+local host = require("host") -- machine-specific overrides, {} on unknown machines
 require("monitor")
 require("lua/plugins/hyprvim").setup({
 	which_key = {
@@ -21,17 +22,22 @@ local browser = "zen-browser"
 local picker = "hyprpicker -a"
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("hypridle")
+	hl.exec_cmd(host.hyprpaper_cmd or "hyprpaper")
+	hl.exec_cmd(host.hypridle_cmd or "hypridle")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 	hl.exec_cmd("vicinae server")
 
-	-- Startup apps
-	hl.exec_cmd(terminal, { workspace = "1" })
-	hl.exec_cmd(browser, { workspace = "2" })
-	hl.exec_cmd("Telegram", { workspace = "2" })
+	-- Startup apps (a host file can replace this list)
+	local startup_apps = host.startup_apps or {
+		{ terminal, "1" },
+		{ browser, "2" },
+		{ "Telegram", "2" },
+	}
+	for _, app in ipairs(startup_apps) do
+		hl.exec_cmd(app[1], { workspace = app[2] })
+	end
 
 	-- Electron app
 	hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
@@ -443,5 +449,9 @@ hl.window_rule({
 	move = { "monitor_w*0.74", "monitor_h*0.74" },
 	match = { class = "chromium-browser", title = ".*[•|].*" },
 })
+
+if host.apply then
+	host.apply()
+end
 
 require("hyprcaffeine-keybinds")
